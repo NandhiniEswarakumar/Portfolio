@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @keyframes moveCircle {
+            0% {
+                transform: translate(-60%, -60%) scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(2);
+                opacity: 0;
+            }
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 60%;
+            background: powderblue;
+            animation: moveCircle 5s infinite ease-in-out;
+            opacity: 0;
+}
+
+
+        .circle:nth-child(1) { width: 150px; height: 150px; top: 20%; left: 60%; animation-delay: 2s; }
+        .circle:nth-child(2) { width: 180px; height: 180px; top: 90%; left: 70%; animation-delay: 1s; }
+        .circle:nth-child(3) { width: 200px; height: 200px; top: 80%; left: 40%; animation-delay: 0s; }
+        .circle:nth-child(4) { width: 120px; height: 120px; top: 30%; left: 80%; animation-delay: 4s; }
+        .circle:nth-child(5) { width: 220px; height: 220px; top: 70%; left: 20%; animation-delay: 3s; }
+
+        @keyframes colorChange {
+            0% { color: #3ddde5; }
+            25% { color: #12c2f3; }
+            50% { color: #3ce7cd; }
+            75% { color: #8e44ad; }
+            100% { color: #e63dca; }
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+
+        .color-change {
+            font-size: 35px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            animation: colorChange 3s linear infinite;
+            text-align: center;
+            left: 409px;
+        }
+        body {
+            margin: 0;
+            padding: 11 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+
+
+        header {
+            background: mediumturquoise;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 60px;
+            margin: 0;
+            z-index: 1000;
+
+        }
+        .portfolio-title {
+            color: #090909;
+            font-size: 30px;
+            margin-right: 920px;
+            font-weight: bolder;
+        }
+
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        section#home {
+            height: 100vh;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            padding: 0.5%;
+            background: black;
+            position: relative;
+            color: white;
+            overflow: hidden;
+        }
+        section {
+            padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section#about {
+            background-color: hsl(205, 65%, 48%);
+            color: hsl(0, 70%, 65%);
+            text-align: left;
+        }
+
+        section#about h2 {
+            font-size: 40px;
+            margin-bottom: 40px;
+            color: #e4b02f;
+        }
+
+        section#about p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        section#about ul {
+            font-size: 18px;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 10;
+        }
+
+        section#about ul li {
+             margin-bottom: 10px;
+            text-align: left; 
+            padding-left: 10px; 
+        }
+
+
+        img.profile {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: absolute;
+            margin-right: 50px;
+            top: 43%;
+            left: 27%;
+            transform: translate(-50%, -50%);
+            border: 10px solid hwb(277 79% 14%);
+            box-shadow: 0 4px 6px rgba(80, 68%, 64%, 0.1);
+            transition:  transform 0.3s ease;;
+        }
+        img.profile:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        .content {
+            position: absolute;
+            top: 60%; 
+            left: 49%; 
+            transform: translateY(-50%); 
+            text-align: left;
+            align-content: center;
+            font-weight: bold;
+        }
+        
+        .content h1 {
+            margin: 15px 0;
+            font-size: 40px;
+            
+
+        }
+        .contenth1{
+            font-size: 50px;
+        }
+        .icons {
+             position: relative;
+            width: 300px; 
+            height: 300px;
+            margin: 4px auto; 
+        }
+
+        .icons a {
+            position: absolute;
+            color: white;
+            font-size: 13px; /* Larger size for visibility */
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+/* Position icons diagonally or in a triangular pattern */
+        .icons a:nth-child(1) { /* GitHub */
+            top: 20%;
+            right:55%;
+            transform: translate(-50%, -50%);
+        }
+
+        .icons a:nth-child(2) { /* Instagram */
+            top: 20%;
+            right: 85%;
+            transform: translate(-50%, -50%);
+        }
+
+        .icons a:nth-child(3) { /* LinkedIn */
+            top: 20%;
+            right: 70%;
+            transform: translate(-50%, -50%);
+        }
+
+/* Hover effects for interaction */
+        .icons a:hover {
+            transform: scale(1.3) translate(-50%, -50%);
+            color: rgb(52, 143, 218);
+        }
+
+
+        .icons a {
+            text-decoration: none;
+            color: hsl(60, 18%, 92%);
+            margin: 0 20px;
+            line-height: 8px;
+            text-align: right;
+            align-items: center;
+
+        }
+        section#about {
+            background-color: black;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        section#about h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: mediumturquoise;
+        }
+
+        section#about p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+        }
+        section#skills {
+            padding: 50px 20px;
+            text-align: center;
+            background: black;
+            color: mediumturquoise;
+        }
+
+        section#skills h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+            font-weight: bold;
+    
+        }
+
+        .skills-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skill {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .skill span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .skill-bar {
+            width: 100%;
+            background: white;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            border-radius: 10px;
+        }
+        section#contact {
+            padding: 50px 20px;
+            text-align: center;
+            background: black;
+            color: white;
+        }
+        section#contact h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-details {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .contact-details li {
+            font-size: 18px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-details i {
+            margin-right: 10px;
+            color: #ff7e5f;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            max-width: 600px;
+            padding: 10px;
+            margin: 10px 0;
+            border: black;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: linear-gradient(to right, #feb47b, #ff7e5f);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="portfolio-title">PORTFOLIO</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <section id="home">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <img src="tree.jpg" alt="Profile Photo" class="profile">
+        <div class="content">
+            <h2>Hello, it's me</h2>
+            <h1>NANDHINI ESWARAKUMAR</h1>
+            <h2>And I'm a</h2>
+            <h1 class="color-change">FULLSTACK DEVELOPER</h2>
+            <div class="icons">
+                <a href="https://github.com/NandhiniEswarakumar" target="_blank">
+                    <i class="fa-brands fa-github fa-2x"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/nandhini-eswarakumar15/" target="_blank">
+                    <i class="fa-brands fa-linkedin fa-2x"></i>
+                </a>
+                <a href="https://www.instagram.com/explore/?hl=en" target="_blank">
+                    <i class="fa-brands fa-instagram fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Hi! I'm Nandhini Eswarakumar, a Fullstack Developer who loves creating seamless digital experiences. 
+            I specialize in combining elegant design with efficient functionality to build responsive, user-friendly applications.
+        </p>
+        <h3 style="text-decoration: underline;color: #ea9936;">💻What I Bring to the Table:</h3>
+                <ul>
+                    <li>Expertise in frontend technologies like HTML, CSS, and JavaScript to craft beautiful, interactive user interfaces.</li>
+                    <li>Proficiency in backend development, ensuring robust and scalable solutions with frameworks like Node.js and Django.</li>
+                </ul>
+            <h3 style="text-decoration: underline;color: #ea9936;">🎯My Goals:</h3>
+                <ul>
+                    <li>I aim to solve real-world problems through innovative tech solutions.</li>
+                    <li>I strive to grow as a professional by constantly learning and challenging myself.</li>
+                </ul>    
+                <ul>
+                    <li>I enjoy experimenting with new technologies and staying updated on industry trends.</li>
+                    <li>In my free time, I love exploring creative hobbies like photography, art, and reading.</li>
+                    <li>I'm always up for a new challenge, whether it's mastering a new skill or collaborating on exciting projects.</li>
+                </ul>
+              </li>  
+              <h3 style="text-decoration: underline;color: #ea9936;">🚀 Why I Love What I Do:</h3>
+                <ul>
+                    <li>Coding gives me the power to turn ideas into reality.</li>
+                    <li>Watching a concept come to life on the screen is incredibly fulfilling.</li>
+                    <li>I strive to create work that not only meets expectations but exceeds them.</li>
+                </ul>
+        </ul>
+    </section>
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <span>HTML</span>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <span>CSS</span>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width: 85%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <span>JavaScript</span>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width: 60%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <span>C</span>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width: 45%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <span>Java</span>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width: 50%;"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <span>UI/UX Design</span>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width: 30%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2 style="color: mediumturquoise;">Contact</h2>
+        <div class="contact-container">
+            <p>Feel free to reach out to me for collaborations or any inquiries!</p>
+            <ul class="contact-details">
+                <li><i class="fas fa-envelope"></i> Email: nandhinieswarakumar@gmail.com</li>
+                <li><i class="fas fa-phone"></i> Phone: +91 9876543210</li>
+                <li><i class="fas fa-map-marker-alt"></i> Location: Erode, India</li>
+            </ul>
+            <form action="https://formsubmit.co/your-email@example.com" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
